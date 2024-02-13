@@ -3,7 +3,7 @@
 ?>
 
     <div id="main-container" class="container-fluid">
-        <h1>Corpo do site</h1>
+        <h1>AUTH</h1>
 
     </div>
     
