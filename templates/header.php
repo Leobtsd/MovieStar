@@ -1,6 +1,19 @@
 <?php 
     include_once("conection.php");
-    include_once("url.php")
+    include_once("url.php");
+    include_once("models/message.php");
+    include_once("dao/userDAO.php");
+
+    $message = new Message($BASE_URL);
+
+    // mostrar mensagem ao usuário
+    $flassMessage = $message->getMessage();
+
+    
+    if(!empty($flassMessage["msg"])) {
+      // limpar a mensagem
+      $message->clearMessage();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -45,3 +58,11 @@
             </div>
         </nav>
     </header>
+
+    <?php if(!empty($flassMessage['msg'])):?>
+        <div class="msg-container">
+            <p class="msg <?=$flassMessage["type"]?>"><?=$flassMessage["msg"]?></p>
+    </div>
+    <?php endif; ?>   
+
+   
